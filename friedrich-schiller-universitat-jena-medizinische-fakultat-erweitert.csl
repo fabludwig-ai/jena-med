@@ -100,11 +100,8 @@
     </group>
   </macro>
   <macro name="edition">
-    <group delimiter=" ">
-      <number variable="edition" form="long-ordinal"/>
-      <text variable="edition"/>
-    </group>
-  </macro>
+  <number variable="edition" form="long-ordinal"/>
+</macro>
   <citation disambiguate-add-year-suffix="true" collapse="year">
     <sort>
       <key macro="issued"/>
