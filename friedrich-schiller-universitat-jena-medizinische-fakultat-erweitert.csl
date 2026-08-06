@@ -17,10 +17,26 @@
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
-    <terms>
-      <term name="et-al">et al.</term>
-    </terms>
-  </locale>
+  <terms>
+    <term name="et-al">et al.</term>
+
+    <term name="edition" gender="feminine">
+      <single>Auflage</single>
+      <multiple>Auflagen</multiple>
+    </term>
+
+    <term name="long-ordinal-01" gender-form="feminine">erste</term>
+    <term name="long-ordinal-02" gender-form="feminine">zweite</term>
+    <term name="long-ordinal-03" gender-form="feminine">dritte</term>
+    <term name="long-ordinal-04" gender-form="feminine">vierte</term>
+    <term name="long-ordinal-05" gender-form="feminine">fünfte</term>
+    <term name="long-ordinal-06" gender-form="feminine">sechste</term>
+    <term name="long-ordinal-07" gender-form="feminine">siebte</term>
+    <term name="long-ordinal-08" gender-form="feminine">achte</term>
+    <term name="long-ordinal-09" gender-form="feminine">neunte</term>
+    <term name="long-ordinal-10" gender-form="feminine">zehnte</term>
+  </terms>
+</locale>
   <macro name="editor-translator">
     <names variable="editor translator" prefix="(" suffix=")." delimiter=", ">
       <name and="text" initialize-with="" delimiter=", "/>
