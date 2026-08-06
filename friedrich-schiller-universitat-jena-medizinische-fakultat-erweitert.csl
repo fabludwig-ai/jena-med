@@ -100,7 +100,20 @@
     </group>
   </macro>
   <macro name="edition">
-  <number variable="edition" form="long-ordinal"/>
+  <group delimiter=" ">
+    <number variable="edition" form="long-ordinal" text-case="capitalize-first"/>
+    <label variable="edition" form="long"/>
+  </group>
+</macro>
+<macro name="online-access">
+  <group delimiter=" ">
+    <text variable="URL" prefix="Verfügbar unter: "/>
+    <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
+      <date-part name="day" form="numeric-leading-zeros"/>
+      <date-part name="month" form="numeric-leading-zeros"/>
+      <date-part name="year"/>
+    </date>
+  </group>
 </macro>
   <citation disambiguate-add-year-suffix="true" collapse="year">
     <sort>
@@ -154,20 +167,7 @@
       </group>
       <text macro="publisher"/>
     </group>
-    <choose>
-      <if variable="URL">
-        <text variable="URL" prefix="Verfügbar unter: "/>
-      </if>
-    </choose>
-    <choose>
-      <if variable="accessed">
-        <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
-          <date-part name="day" form="numeric-leading-zeros"/>
-          <date-part name="month" form="numeric-leading-zeros"/>
-          <date-part name="year"/>
-        </date>
-      </if>
-    </choose>
+    <text macro="online-access"/>
   </group>
 </else-if>
           <else-if type="thesis" match="any">
@@ -201,12 +201,7 @@
   <group delimiter=". ">
     <text macro="title" prefix=" "/>
     <text variable="container-title"/>
-    <text variable="URL" prefix="Verfügbar unter: "/>
-    <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
-      <date-part name="day" form="numeric-leading-zeros"/>
-      <date-part name="month" form="numeric-leading-zeros"/>
-      <date-part name="year"/>
-    </date>
+    <text macro="online-access"/>
   </group>
 </else-if>
 <else>
