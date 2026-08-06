@@ -148,17 +148,31 @@
             <text prefix=" " suffix="." macro="publisher"/>
           </if>
           <else-if type="report" match="any">
-            <group delimiter=". ">
-              <text macro="title" prefix=" "/>
-              <group delimiter=". ">
-                <group delimiter=", ">
-                  <text variable="genre" prefix=" "/>
-                  <text variable="number"/>
-                </group>
-                <text macro="publisher"/>
-              </group>
-            </group>
-          </else-if>
+  <group delimiter=". ">
+    <text macro="title" prefix=" "/>
+    <group delimiter=". ">
+      <group delimiter=", ">
+        <text variable="genre" prefix=" "/>
+        <text variable="number"/>
+      </group>
+      <text macro="publisher"/>
+    </group>
+    <choose>
+      <if variable="URL">
+        <group delimiter=" ">
+          <text variable="URL" prefix="Verfügbar unter: "/>
+          <group prefix="(Zugriff am " suffix=")">
+            <date variable="accessed" delimiter=".">
+              <date-part name="day" form="numeric-leading-zeros"/>
+              <date-part name="month" form="numeric-leading-zeros"/>
+              <date-part name="year"/>
+            </date>
+          </group>
+        </group>
+      </if>
+    </choose>
+  </group>
+</else-if>
           <else-if type="thesis" match="any">
             <group delimiter=". ">
               <group delimiter=" ">
