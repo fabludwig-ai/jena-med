@@ -147,7 +147,7 @@
             </group>
             <text prefix=" " suffix="." macro="publisher"/>
           </if>
-          <else-if type="report" match="any">
+         <else-if type="report" match="any">
   <group delimiter=". ">
     <text macro="title" prefix=" "/>
     <group delimiter=". ">
@@ -159,16 +159,16 @@
     </group>
     <choose>
       <if variable="URL">
-        <group delimiter=" ">
-          <text variable="URL" prefix="Verfügbar unter: "/>
-          <group prefix="(Zugriff am " suffix=")">
-            <date variable="accessed" delimiter=".">
-              <date-part name="day" form="numeric-leading-zeros"/>
-              <date-part name="month" form="numeric-leading-zeros"/>
-              <date-part name="year"/>
-            </date>
-          </group>
-        </group>
+        <text variable="URL" prefix="Verfügbar unter: "/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="accessed">
+        <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
+          <date-part name="day" form="numeric-leading-zeros"/>
+          <date-part name="month" form="numeric-leading-zeros"/>
+          <date-part name="year"/>
+        </date>
       </if>
     </choose>
   </group>
