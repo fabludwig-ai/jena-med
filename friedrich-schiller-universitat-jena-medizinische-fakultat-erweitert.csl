@@ -197,21 +197,33 @@
               </group>
             </group>
           </else-if>
-          <else>
-            <group delimiter=". ">
-              <text macro="title" prefix=" "/>
-              <group delimiter=", ">
-                <text variable="container-title"/>
-                <group delimiter=":">
-                  <group prefix=" ">
-                    <text variable="volume"/>
-                    <text variable="issue" prefix="(" suffix=")"/>
-                  </group>
-                  <text variable="page"/>
-                </group>
-              </group>
-            </group>
-          </else>
+<else-if type="webpage post-weblog" match="any">
+  <group delimiter=". ">
+    <text macro="title" prefix=" "/>
+    <text variable="container-title"/>
+    <text variable="URL" prefix="Verfügbar unter: "/>
+    <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
+      <date-part name="day" form="numeric-leading-zeros"/>
+      <date-part name="month" form="numeric-leading-zeros"/>
+      <date-part name="year"/>
+    </date>
+  </group>
+</else-if>
+<else>
+  <group delimiter=". ">
+    <text macro="title" prefix=" "/>
+    <group delimiter=", ">
+      <text variable="container-title"/>
+      <group delimiter=":">
+        <group prefix=" ">
+          <text variable="volume"/>
+          <text variable="issue" prefix="(" suffix=")"/>
+        </group>
+        <text variable="page"/>
+      </group>
+    </group>
+  </group>
+</else>
         </choose>
       </group>
     </layout>
