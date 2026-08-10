@@ -139,14 +139,14 @@
     <layout prefix="(" suffix=")" delimiter=", ">
   <group delimiter=" ">
     <text macro="author-short"/>
-    <text macro="issued"/>
-    <choose>
-      <if variable="locator">
-        <group prefix=": ">
-          <text variable="locator"/>
-        </group>
-      </if>
-    </choose>
+    <group delimiter="">
+      <text macro="issued"/>
+      <choose>
+        <if variable="locator">
+          <text variable="locator" prefix=": "/>
+        </if>
+      </choose>
+    </group>
   </group>
 </layout>
   </citation>
