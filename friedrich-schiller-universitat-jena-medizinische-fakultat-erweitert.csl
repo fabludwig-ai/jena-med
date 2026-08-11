@@ -12,8 +12,8 @@
     </author>
     <category citation-format="author-date"/>
     <category field="medicine"/>
-    <summary>Style for the medical faculty of the Friedrich-Schiller University Jena, derived primarily from Aquatic Conservation style</summary>
-    <updated>2026-08-11T14:15:00+00:00</updated>
+    <summary>Extended version of the official Friedrich Schiller University Jena Medical Faculty citation style. Adds page locators in citations, improved online source handling (DOI/URL), URL access dates, corrected edition formatting, and several bug fixes while preserving the original Jena citation format.</summary>
+    <updated>2026-08-11T16:15:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -125,7 +125,7 @@
   <choose>
 
     <if variable="DOI">
-  <text variable="DOI" prefix="Verfügbar unter: https://doi.org/"/>
+  <text variable="DOI" prefix="Verfügbar unter: "/>
 </if>
 
     <else-if variable="URL">
