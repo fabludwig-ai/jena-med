@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="de-DE">
   <info>
-    <title>Friedrich-Schiller-Universität Jena - Medizinische Fakultät (Deutsch) - erweitert v1.0.2</title>
+    <title>Friedrich-Schiller-Universität Jena - Medizinische Fakultät (Deutsch) - erweitert v1.1</title>
     <id>http://www.zotero.org/styles/friedrich-schiller-universitat-jena-medizinische-fakultat-erweitert</id>
     <link href="http://www.zotero.org/styles/friedrich-schiller-universitat-jena-medizinische-fakultat-erweitert" rel="self"/>
     <link href="http://www.zotero.org/styles/aquatic-conservation" rel="template"/>
@@ -13,7 +13,7 @@
     <category citation-format="author-date"/>
     <category field="medicine"/>
     <summary>Style for the medical faculty of the Friedrich-Schiller University Jena, derived primarily from Aquatic Conservation style</summary>
-    <updated>2026-08-10T16:15:00+00:00</updated>
+    <updated>2026-08-11T14:15:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -122,14 +122,24 @@
   </group>
 </macro>
 <macro name="online-access">
-  <group delimiter=" ">
-    <text variable="URL" prefix="Verfügbar unter: "/>
-    <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
-      <date-part name="day" form="numeric-leading-zeros"/>
-      <date-part name="month" form="numeric-leading-zeros"/>
-      <date-part name="year"/>
-    </date>
-  </group>
+  <choose>
+
+    <if variable="DOI">
+  <text variable="DOI" prefix="Verfügbar unter: https://doi.org/"/>
+</if>
+
+    <else-if variable="URL">
+      <group delimiter=" ">
+        <text variable="URL" prefix="Verfügbar unter: "/>
+        <date variable="accessed" prefix="(Zugriff am " suffix=")" delimiter=".">
+          <date-part name="day" form="numeric-leading-zeros"/>
+          <date-part name="month" form="numeric-leading-zeros"/>
+          <date-part name="year"/>
+        </date>
+      </group>
+    </else-if>
+
+  </choose>
 </macro>
   <citation disambiguate-add-year-suffix="true" collapse="year">
     <sort>
@@ -206,11 +216,12 @@
                 </names>
               </group>
               <text variable="container-title"/>
-              <text macro="edition"/>
-              <group delimiter=", ">
+<text macro="edition"/>
+<group delimiter=", ">
   <text macro="publisher"/>
   <text variable="page"/>
 </group>
+<text macro="online-access"/>
             </group>
           </else-if>
 <else-if type="webpage post-weblog" match="any">
