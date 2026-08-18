@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="de-DE">
   <info>
-    <title>Friedrich-Schiller-Universität Jena - Medizinische Fakultät (Deutsch) - erweitert v1.2</title>
+    <title>Friedrich-Schiller-Universität Jena - Medizinische Fakultät (Deutsch) - erweitert v1.3</title>
     <id>http://www.zotero.org/styles/friedrich-schiller-universitat-jena-medizinische-fakultat-erweitert</id>
     <link href="http://www.zotero.org/styles/friedrich-schiller-universitat-jena-medizinische-fakultat-erweitert" rel="self"/>
     <link href="http://www.zotero.org/styles/aquatic-conservation" rel="template"/>
@@ -13,7 +13,7 @@
     <category citation-format="author-date"/>
     <category field="medicine"/>
     <summary>Extended version of the official Friedrich Schiller University Jena Medical Faculty citation style. Adds page locators in citations, improved online source handling (DOI/URL), URL access dates, corrected edition formatting, and several bug fixes while preserving the original Jena citation format.</summary>
-    <updated>2026-08-17T16:30:00+00:00</updated>
+    <updated>2026-08-18T16:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
@@ -177,6 +177,14 @@
       <text value="[Konferenzbeitrag]"/>
     </group>
   </if>
+
+  <else-if type="report" variable="collection-title" match="all">
+    <group delimiter=" ">
+      <text macro="author"/>
+      <text value="[Arbeitspapier]"/>
+    </group>
+  </else-if>
+
   <else>
     <text macro="author"/>
   </else>
